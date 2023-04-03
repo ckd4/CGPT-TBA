@@ -10,7 +10,7 @@ from aiogram import Bot, types
 
 bot = telebot.TeleBot('6002185430:AAH9Sy1z2rHStVumXNGDA_hBre_OXEOhLtw')
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 @bot.message_handler(commands=['start'])
 def main(message):
