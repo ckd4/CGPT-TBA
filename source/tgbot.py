@@ -5,13 +5,13 @@ import telebot
 
 def start() -> None:
 	load_dotenv()
-	logger.debug("Reading environment variables")
+	logger.debug("READING ENVIRONMENT VARIABLES")
 	bot_token = os.getenv("TELEGR_TOKEN")
 	oai_token = os.getenv("OPENAI_TOKEN")
-	logger.info("Bot configuration")
-	logger.debug(f"Telegram token: {bot_token}")
-	logger.debug(f"OpenAI token: {oai_token}")
-	logger.info("Bot object initialisation")
+	logger.info("BOTT CONFIGURATION")
+	logger.debug(f"TELEGR_TOKEN={bot_token}")
+	logger.debug(f"OPENAI_TOKEN={oai_token}")
+	logger.info("BOT OBJECT INITIALISATION")
 	bot = telebot.TeleBot(bot_token)
 	logger.debug(bot)
 
@@ -23,6 +23,10 @@ def start() -> None:
 	@bot.message_handler(commands=["image"])
 	def msg_image(message):
 		logger.info(f"{message.chat.id} -> msg:'/image'")
-		bot.send_photo(message.chat.id, "https://psv4.userapi.com/c240331/u255340212/docs/d21/d557dc2807d4/IMG_7936.gif")
+		if (os.path.exists("source\content\image.gif") == False):
+			logger.warning("UNABLE TO FIND IMAGE FILE")
+			bot.send_massage(message.chat.id, "Unable to load image :(")
+		else:
+			bot.send_photo(message.chat.id, photo=open("source\content\image.gif", "rb"))
 
 	bot.polling()

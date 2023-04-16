@@ -1,6 +1,6 @@
 import logging
 
-class CustomFormatter(logging.Formatter):
+class ConsoleFormatter(logging.Formatter):
 	debug = "\x1b[96;20m"
 	info = "\x1b[32;20m"
 	warning = "\x1b[33;20m"
