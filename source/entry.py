@@ -1,15 +1,9 @@
-import custom_format
-import logging
+import logger
+import tgbot
 
-logger = logging.getLogger("tg")
-logger.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
-ch.setFormatter(custom_format.CustomFormatter())
-logger.addHandler(ch)
+def main() -> None:
+	logger.configure()
+	bot = tgbot.Bot()
 
-logger.info("dxdxdxd")
-logger.debug("dxdxdxd")
-logger.warning("dxdxdxd")
-logger.error("dxdxdxd")
-logger.critical("dxdxdxd")
+if __name__ == "__main__":
+	main()
