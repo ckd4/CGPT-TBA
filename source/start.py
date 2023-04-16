@@ -1,9 +1,9 @@
 import logger
-import tgbot
+import telegram_bot
 
 def main() -> None:
 	logger.configure()
-	tgbot.start()
+	telegram_bot.start()
 
 if __name__ == "__main__":
 	main()

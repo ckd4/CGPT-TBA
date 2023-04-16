@@ -23,5 +23,4 @@ def start() -> None:
 		logger.info(f"{message.chat.id} -> msg:'/ask'")
 		bot.send_message(message.chat.id, "[ chatgpt response here ]")
 
-
 	bot.polling()
