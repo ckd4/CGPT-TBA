@@ -1,1 +1,4 @@
 python-dotenv==1.0.0
+wheel==0.40.0
+pyTelegramBotAPI==4.11.0
+telebot==0.0.5

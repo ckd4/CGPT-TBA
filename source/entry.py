@@ -3,7 +3,7 @@ import tgbot
 
 def main() -> None:
 	logger.configure()
-	bot = tgbot.Bot()
+	tgbot.start()
 
 if __name__ == "__main__":
 	main()
