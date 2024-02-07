@@ -1,16 +1,33 @@
-#pip install openai
-#pip install telebot
-#pip install python-telegram-bot
-#pip install aiogram
-
+import os
 import openai
 import telebot
 import telegram
 from aiogram import Bot, types
 
+#Here is the token for ur bot
 bot = telebot.TeleBot('6002185430:AAH9Sy1z2rHStVumXNGDA_hBre_OXEOhLtw')
 
+#chatgpt token
 openai.api_key = "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"
+
+'''
+#Theb.ai api key
+openai.api_key = os.getenv(" ")
+
+completion = openai.ChatCompletion.create(
+  model="claude-instant-1",
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello!"}
+  ],
+  stream=False,
+  model_params={
+    "temperature": 0.8
+  }
+)
+
+print(completion.choices[0].message)
+'''
 
 @bot.message_handler(commands=['start'])
 def main(message):
