@@ -34,13 +34,16 @@ def main(message):
 
         if response and response.choices:
             reply = response.choices[0].message.content
+            print(f"{message.from_user.first_name} ({message.chat.id}):\n{message.text}")
         else:
             reply = 'No response from the model'
+            print("No response from the model")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}\n\n API ERROR")
         reply = 'Error processing your request'
 
+    # response from gpt
     bot.send_message(message.chat.id, reply)
 
-bot.polling(none_stop=True, interval=0) # bot looking for new messages non stop
+bot.polling(none_stop=True, interval=0) # bot looking for new messages non stop     
