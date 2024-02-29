@@ -1,5 +1,6 @@
 import os
 import telebot
+import telegram
 from openai import OpenAI
 from dotenv import load_dotenv, dotenv_values
 
@@ -21,6 +22,7 @@ def main(message):
     reply = ''
 
     try:
+        bot.send_chat_action(message.chat.id, action=telegram.constants.ChatAction.TYPING)
         response = client.chat.completions.create(
             model = 'gpt-3.5-turbo',
             messages=[{'role': 'user', 'content': message.text}],
