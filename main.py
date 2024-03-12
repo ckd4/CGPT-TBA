@@ -50,7 +50,7 @@ def generate_reply(message, jb: str = '') -> str:
         return reply
 def send_reply(message, reply: str, src: str):
     loguru.logger.debug(f"{src} {message.chat.id} {message.from_user.username}: {message.text} <- " + reply.replace('\n', ''))
-    bot.send_message(message.chat.id, translate(reply))
+    bot.send_message(message.chat.id, reply)
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -70,4 +70,4 @@ def origin(message):
 
 
 if __name__ == "__main__":
-    bot.polling(none_stop=True, interval=0)
+    bot.polling(none_stop=True)
